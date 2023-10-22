@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <!-- <link rel="stylesheet" href="./global.css" /> -->
+    <link rel="stylesheet" href="./cart.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Gidugu:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Glegoo:wght@700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="shopping">
+      <div class="base"></div>
+      <div class="navbar">
+        <div class="navbnar"></div>
+        <img class="logo-icon" alt="" src="C:\\Users\THE WITCHER\Downloads\\logo1.png" />
+
+        <div class="links">
+            <div class="collections">
+              <a href="collections.html" class="collections1">COLLECTIONS</a>
+            </div>
+            <div class="about">
+              <a href="about.html" class="collections1">ABOUT</a>
+            </div>
+            <div class="contact">
+              <a href="contact.html" class="collections1">CONTACT</a>
+            </div>
+            <div class="home"><a href="zahid.html">HOME</a></div>
+          </div>
+          <div class="cart-button">
+            <div class="cart-button-child"></div>
+            <div class="cart">
+              <a href="cart.html" class="collections1">CART</a>
+            </div>
+          </div>
+          <!-- navbar ends here -->
+          
+
+    <div class="cont1">
+    <h1>Shopping Cart</h1>
+    <div id="item-list">
+        <h2>Available Items</h2>
+        <ul>
+            <li>
+                <div class="white">
+                WHITE TEE - 399
+                <input type="number" id="item1-quantity" value="0" min="0">
+                <button onclick="addItemToCart('white tee', 399, 'item1-quantity')">Add to Cart</button>
+                </div>
+            </li>
+            <li>
+                <div class="black">
+                BLACK TEE - 399
+                <input type="number" id="item2-quantity" value="0" min="0">
+                <button onclick="addItemToCart('black tee', 399, 'item2-quantity')">Add to Cart</button>
+                </div>
+            </li>
+            <li>
+                <div class="yellow">
+                YELLOW TEE - 399
+                <input type="number" id="item3-quantity" value="0" min="0">
+                <button onclick="addItemToCart('yellow', 399, 'item3-quantity')">Add to Cart</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <div id="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items">
+        </ul>
+        <p>Total: $<span id="cart-total">0</span></p>
+    </div>
+    <div class="checkout">
+        <button onclick="order()">complete order</button>
+    </div>
+
+    <script>
+        const cart = [];
+
+        function addItemToCart(itemName, itemPrice, quantityId) {
+            const quantity = parseInt(document.getElementById(quantityId).value);
+
+            if (quantity > 0) {
+                const item = {
+                    name: itemName,
+                    price: itemPrice,
+                    quantity: quantity
+                };
+
+                cart.push(item);
+
+                updateCart();
+            }
+        }
+
+        function updateCart() {
+            const cartItemsList = document.getElementById("cart-items");
+            const cartTotal = document.getElementById("cart-total");
+
+            cartItemsList.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.innerText = `${item.name} x${item.quantity} - $${item.price * item.quantity}`;
+                cartItemsList.appendChild(listItem);
+
+                total += item.price * item.quantity;
+            });
+
+            cartTotal.innerText = total;
+        }
+        function order(){
+            alert("order completed");
+        }
+    </script>
+<!-- cart ends here -->
+      <div class="footer">
+        <div class="frec"></div>
+        <div class="flog">
+          <img class="logo-icon1" alt="" src="C:\\Users\THE WITCHER\Downloads\\logo1.png" />
+
+          <div class="wolf-clothing1">WOLF CLOTHING.</div>
+        </div>
+        <div class="container">
+          <div class="column">
+            <div class="makers-brand-logo">
+              <div class="makingit-logo">
+                <div class="icon">
+                  <div class="icon-child"></div>
+                  <div class="icon-item"></div>
+                  <div class="icon-inner"></div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-us-247">CONTACT US 24/7 ON</div>
+            <div class="social-media">
+              <img
+                class="makers-social-media-icons"
+                alt=""
+                src="./public/makers-social-media-icons.svg"
+              />
+
+              <img class="twitter-icon" alt="" src="C:\\Users\THE WITCHER\Downloads\\ilog.png" />
+
+              <img class="twitter-icon" alt="" src="C:\\Users\THE WITCHER\Downloads\\twit.jpg" />
+            </div>
+          </div>
+          <div class="column1">
+            <div class="company">COMPANY</div>
+            <div class="navigation-links">
+              <div class="navigation-item">
+                <div class="about">About</div>
+              </div>
+              <div class="navigation-item">
+                <div class="about">Twitter</div>
+              </div>
+              <div class="navigation-item">
+                <div class="about">Blog</div>
+              </div>
+            </div>
+          </div>
+          <div class="column1">
+            <div class="company">PRODUCT</div>
+            <div class="navigation-links">
+              <div class="navigation-item">
+                <div class="about">Pricing</div>
+              </div>
+              <div class="navigation-item">
+                <div class="about">Features</div>
+              </div>
+              <div class="navigation-item">
+                <div class="about">Templates</div>
+              </div>
+            </div>
+          </div>
+          <div class="column1">
+            <div class="company">RESOURCES</div>
+            <div class="navigation-links">
+              <div class="navigation-item">
+                <div class="about">Testimonials</div>
+              </div>
+              <div class="navigation-item">
+                <div class="about">Support</div>
+              </div>
+              <div class="navigation-item">
+                <div class="about">Terms</div>
+              </div>
+              <div class="navigation-item">
+                <div class="about">Privacy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
